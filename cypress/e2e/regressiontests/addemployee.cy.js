@@ -6,7 +6,7 @@ describe("Verify Add employee functionality", ()=>{
 
         cy.visit("/web/index.php/auth/login")
     
-        cy.get("input[name='username2']").type(Cypress.env("username"))
+        cy.get("input[name='username']").type(Cypress.env("username"))
     
         cy.get("input[type='password']").type(Cypress.env("password"))
     
@@ -26,34 +26,38 @@ describe("Verify Add employee functionality", ()=>{
 
     })
 
-      
-    it("Verify Add Employee With Mandotory details",()=>{
+      const arr = ["Srinivas", "Ravi"]
+      arr.forEach(element => {
+        
+        it(`Verify Add Employee With Mandotory details - ${element}`,()=>{
 
-        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+            cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        
+            cy.get("input[name='username']").type("Admin")
+        
+            cy.get("input[type='password']").type("admin123")
+        
+            cy.get("button[type='submit']").click()
+        
+            cy.get('a.oxd-main-menu-item.active').should("be.visible")
     
-        cy.get("input[name='username']").type("Admin")
+            cy.get('a[href="/web/index.php/pim/viewPimModule"]').click({force:true})
     
-        cy.get("input[type='password']").type("admin123")
+            cy.contains('Add Employee').click()
     
-        cy.get("button[type='submit']").click()
+            cy.get('input[name="firstName"]').type(element)
     
-        cy.get('a.oxd-main-menu-item.active').should("be.visible")
+            cy.get('input[placeholder="Last Name"]').type("V")
+    
+            cy.get('button[type="submit"]').click()
+    
+            cy.contains("Successfully").should("be.visible")
+    
+    
+    
+        })
+      });
 
-        cy.get('a[href="/web/index.php/pim/viewPimModule"]').click({force:true})
-
-        cy.contains('Add Employee').click()
-
-        cy.get('input[name="firstName"]').type("Mounesh")
-
-        cy.get('input[placeholder="Last Name"]').type("V")
-
-        cy.get('button[type="submit"]').click()
-
-        cy.contains("Successfully").should("be.visible")
-
-
-
-    })
 
 
 })

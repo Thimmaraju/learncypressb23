@@ -5,12 +5,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["Cypress", "Mocha", "Chai", "allure"],
+  "keywords": [
+    "Cypress",
+    "Mocha",
+    "Chai",
+    "allure"
+  ],
   "author": "Raju",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cypress": "^13.13.0"
+    "cypress": "^13.13.0",
+    "moment": "^2.30.1"
   },
   "devDependencies": {
     "cypress-mochawesome-reporter": "^3.8.2"

@@ -10,7 +10,7 @@ describe('Verify Add Job functionality', () => {
    
     cy.visit("/web/index.php/auth/login")
     
-    cy.get("input[name='username2']").type(Cypress.env("username"))
+    cy.get(`input[name="username"]`).type(Cypress.env("username"))
 
     cy.get("input[type='password']").type(Cypress.env("password"))
 
