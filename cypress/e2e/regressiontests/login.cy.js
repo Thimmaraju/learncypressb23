@@ -1,5 +1,18 @@
-
+import login from "../../pageObjects/loginpage.po"
 describe('Verify Login functionality', function() {
+
+  beforeEach( ()=>{
+
+    cy.log("Test Execution is Started")
+    cy.visit("/web/index.php/auth/login")
+})
+
+
+afterEach( ()=>{
+
+  cy.log("Test Execution is Completed")
+  
+})
 
   const creds = {
 
@@ -35,11 +48,11 @@ describe('Verify Login functionality', function() {
     }
     cy.visit("/web/index.php/auth/login")
 
-    cy.get("input[name='username']", { timeout: 40000 }).type(creds.username)
+    cy.get(login.usernameInput, { timeout: 40000 }).type(creds.username)
 
-    cy.get("input[type='password']").type(creds.password)
+    cy.get(login.passwordInput).type(creds.password)
 
-    cy.get("button[type='submit']").click()
+    cy.get(login.loginBtn()).click()
 
     for(let item in menuitems){
 
@@ -55,13 +68,13 @@ describe('Verify Login functionality', function() {
   
     cy.visit("/web/index.php/auth/login")
 
-    cy.get("input[name='username']").type("Admin")
+    cy.get(login.usernameInput).type("Admin")
 
-    cy.get("input[type='password']").type("ergberhg")
+    cy.get(login.passwordInput).type("ergberhg")
 
-    cy.get("button[type='submit']").click()
+    cy.get(login.loginBtn()).click()
 
-    cy.contains('Invalid credentials').should("be.visible")
+    cy.contains(login.loginerrorMessage()).should("be.visible")
 
 
   })
@@ -84,14 +97,7 @@ describe('Verify Login functionality', function() {
 
   it('Verify login with invalid username and invalid password', () => {
 
-    cy.visit("/web/index.php/auth/login")
-
-    cy.get("input[name='username']").type("kjfjhje")
-
-    cy.get("input[type='password']").type("kjehgfrhv")
-
-    cy.get("button[type='submit']").click()
-
+    login.loginwithcreds("ejrwbfew","guyfhew")
     cy.contains('Invalid credentials').should("be.visible")
 
 
