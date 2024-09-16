@@ -1,5 +1,10 @@
 
 import login from "../../pageObjects/loginpage.po"
+
+import dashboard from "../../pageObjects/dashboardpage.po"
+
+import addemployee from "../../pageObjects/PIM/addemployee.po"
+
 context("Verify Add employee functionality", () => {
 
   beforeEach( "Login", ()=>{
@@ -9,9 +14,9 @@ context("Verify Add employee functionality", () => {
 
     cy.get(login.passwordInput).type(Cypress.env("password"))
 
-    cy.get("button[type='submit']").click()
+    cy.get(login.loginBtn()).click()
 
-    cy.get('a.oxd-main-menu-item.active').should("be.visible")
+    cy.contains(dashboard.dashBoardMenu()).should("be.visible")
     
 })
 
@@ -26,14 +31,14 @@ afterEach( ()=>{
 
 
 
-    cy.get('a[href="/web/index.php/pim/viewPimModule"]').click()
+    cy.contains(dashboard.pimMenu()).click()
 
-    cy.contains('Add Employee').click()
+    cy.contains(addemployee.addEmployeeSubMenu()).click()
 
-    cy.get('button[type="submit"]').click()
+    cy.get(addemployee.saveBtn()).click()
 
-    cy.get('span[class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]').eq(0).should("be.visible")
-    cy.get('span[class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]').eq(1).should("be.visible")
+    cy.get(addemployee.requirederrorMessage()).eq(0).should("be.visible")
+    cy.get(addemployee.requirederrorMessage()).eq(1).should("be.visible")
 
 
   })
@@ -41,19 +46,11 @@ afterEach( ()=>{
   const arr = ["Srinivas", "Ravi"]
   arr.forEach(element => {
 
-    specify.only(`Verify Add Employee With Mandotory details - ${element}`, () => {
+    specify(`Verify Add Employee With Mandotory details - ${element}`, () => {
 
-          cy.get('a[href="/web/index.php/pim/viewPimModule"]').click({ force: true })
+          cy.contains(dashboard.pimMenu()).click({ force: true })
 
-      cy.contains('Add Employee').click()
-
-      cy.get('input[name="firstName"]').type(element)
-
-      cy.get('input[placeholder="Last Name"]').type("V")
-
-      cy.get('button[type="submit"]').click()
-
-      cy.contains("Successfully").should("be.visible")
+          addemployee.addEmployeeMethod(element, "R")
 
 
 
