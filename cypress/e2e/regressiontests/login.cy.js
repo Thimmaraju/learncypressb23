@@ -48,7 +48,7 @@ afterEach( ()=>{
     }
     cy.visit("/web/index.php/auth/login")
 
-    cy.get(login.usernameInput, { timeout: 40000 }).type(creds.username)
+    cy.xpath(login.usernameInput, { timeout: 40000 }).type(creds.username)
 
     cy.get(login.passwordInput).type(creds.password)
 

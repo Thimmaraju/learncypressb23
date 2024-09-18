@@ -1,6 +1,6 @@
 class loginPage{
 
-    usernameInput = "input[name='username']"
+    usernameInput = '//input[@name="username"]'
     passwordInput = "input[type='password']"
 
     loginBtn(){

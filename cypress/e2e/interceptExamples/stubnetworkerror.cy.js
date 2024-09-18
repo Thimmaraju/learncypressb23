@@ -4,12 +4,17 @@ context("Verify Add employee functionality", () => {
 
   beforeEach( "Login", ()=>{
 
-    cy.intercept("GET", "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?limit=50&offset=0&model=detailed&includeEmployees=onlyCurrent&sortField=employee.firstName&sortOrder=ASC", {
+    // cy.intercept("GET", "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?limit=50&offset=0&model=detailed&includeEmployees=onlyCurrent&sortField=employee.firstName&sortOrder=ASC", {
+    //   forceNetworkError: true,
+    // }).as("getEmployees")
+
+    cy.intercept("GET", "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/subunits", {
       forceNetworkError: true,
-    }).as("getEmployees")
+    }).as("subunits")
+
     cy.visit("/web/index.php/auth/login")
 
-    cy.get(login.usernameInput).type(Cypress.env("username"))
+    cy.xpath(login.usernameInput).type(Cypress.env("username"))
 
     cy.get(login.passwordInput).type(Cypress.env("password"))
 
@@ -31,7 +36,7 @@ afterEach( ()=>{
     cy.get('a[href="/web/index.php/pim/viewPimModule"]').click()
      // verify where this API called 
      // verify subbed response
-    cy.wait('@getEmployees').then(() => {
+    cy.wait('@subunits').then(() => {
         
          cy.contains('Error').should("be.visible")
       })

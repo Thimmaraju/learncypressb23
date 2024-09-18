@@ -31,11 +31,34 @@ context("Verify Add employee functionality", () => {
                 "name": "Full-Time Permanent"
               },
               "supervisors": []
-            }
+            },
+            {
+              "empNumber": 204,
+              "lastName": "Nelson",
+              "firstName": "Amber",
+              "middleName": "",
+              "employeeId": "0405",
+              "terminationId": null,
+              "jobTitle": {
+                  "id": 28,
+                  "title": "Automaton Tester",
+                  "isDeleted": true
+              },
+              "subunit": {
+                  "id": null,
+                  "name": null
+              },
+              "empStatus": {
+                  "id": 1,
+                  "name": "Raju"
+              },
+              "supervisors": []
+          }
+  
 
           ],
           "meta": {
-            "total": 96
+            "total": 30
           },
           "rels": []
         }
@@ -43,7 +66,7 @@ context("Verify Add employee functionality", () => {
     ).as("getEmployees")
     cy.visit("/web/index.php/auth/login")
 
-    cy.get(login.usernameInput).type(Cypress.env("username"))
+    cy.xpath(login.usernameInput).type(Cypress.env("username"))
 
     cy.get(login.passwordInput).type(Cypress.env("password"))
 
