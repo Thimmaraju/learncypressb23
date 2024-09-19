@@ -16,7 +16,7 @@ context("Verify Add employee functionality", () => {
         ).as("getEmployees")
         cy.visit("/web/index.php/auth/login")
 
-        cy.xpath(login.usernameInput).type(Cypress.env("username"))
+        cy.xpath(login.usernameInput).type(Cypress.env("username"), {delay:5000})
 
         cy.get(login.passwordInput).type(Cypress.env("password"))
 
