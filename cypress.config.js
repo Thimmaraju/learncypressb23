@@ -8,14 +8,14 @@ module.exports = defineConfig({
 
     "baseUrl":"https://opensource-demo.orangehrmlive.com",
     "watchForFileChanges": false,
-    "defaultCommandTimeout": 20000,
+   // "defaultCommandTimeout": 20000,
     "pageLoadTimeout": 30000,
      viewportWidth: 1920,
      viewportHeight: 1080,
     "video": true,
     //videosFolder: "cypress/raju",
     
-    retries:{openMode:3, runMode:2},
+    //retries:{openMode:3, runMode:2},
     env:{
          
       "username": "Admin",
