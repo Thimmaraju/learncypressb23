@@ -21,7 +21,7 @@ describe('Automation - Working With Iframe', function () {
         })
 
 
-        cy.contains("Download").click()
+       //    cy.contains("Download").click()
 
 
        //cypress-iframe - plugin

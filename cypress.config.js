@@ -21,7 +21,8 @@ module.exports = defineConfig({
     env:{
          
       "username": "Admin",
-      "password":"admin123"
+      "password":"admin123",
+      "version": "",
 
     },
     setupNodeEvents(on, config) {

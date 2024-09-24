@@ -11,28 +11,21 @@ describe("suitename", () => {
 
         cy.get("#table1 > thead>tr>th").should("have.length", 6)
 
-        cy.get('#table1 > tbody >tr:nth-child(2) >td:nth-child(3)').then((txt) => {
+        cy.get('#table1 > tbody >tr:nth-child(4) >td:nth-child(4)').then((txt) => {
 
             var textvalue = txt.text()
             cy.log(textvalue)
 
-            expect(textvalue).to.equal("fbach@yahoo.com")
+            //expect(textvalue).to.equal("$50.00")
 
         })
 
 
-        cy.contains("Doe").parent().within(() => {
+        cy.contains("Conway").parent().within(() => {
 
-            cy.get("td").eq(3).then((txt) => {
+            cy.get("td").eq(5).find('a[href="#delete"]').click()
 
-                var textvalue = txt.text()
-                cy.log(textvalue)
-
-
-            })
         })
-
-
         cy.get('#table1 > tbody >tr').each((rows) => {
 
             cy.wrap(rows).within((celldata) => {

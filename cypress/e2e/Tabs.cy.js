@@ -17,20 +17,22 @@ describe('Automation - Working With Tabs in webpage', function () {
   
       cy.contains('API').invoke("removeAttr", "target").click({force: true})
       cy.wait(5000);
-      cy.reload()
+   
   
       cy.url().should('include', 'https://docs.cypress.io/api/commands/and')
+
+      cy.reload()   // to refresh reload 
   
 
      // ================================================
      
-        //cy.go(-1) // backword
+        cy.go(-1) // backword
 
-        cy.go('back')
+        // cy.go('back')
   
-        // cy.go(1) //forward
+       cy.go(1) //forward
 
-         cy.go('forward')
+        // cy.go('forward')
   
     })
   
