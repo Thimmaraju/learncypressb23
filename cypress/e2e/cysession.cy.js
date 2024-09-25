@@ -1,5 +1,5 @@
 
-
+import addemployee from "../pageObjects/PIM/addemployee.po"
 describe('Validate Orange HRM Login functionality', function () {
 
 
@@ -7,20 +7,13 @@ describe('Validate Orange HRM Login functionality', function () {
 
     cy.session("Login session", () => {
 
-      cy.visit("/web/index.php/auth/login")
-      cy.get('input[name="username"]').type("Admin")
-      cy.get('input[type="password"]').type("admin123")
-      cy.get('button[type="submit"]').click()
-
+       cy.login()
    
     })
 
   })
 
   it('Validate Add job title ', function () {
-
-
-    //cy.contains("Dashboard").should("be.visible")
 
     cy.visit("/web/index.php/admin/saveJobTitle");
     let r = (Math.random() + 1).toString(36).substring(7);
@@ -36,7 +29,8 @@ describe('Validate Orange HRM Login functionality', function () {
 
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee')
 
-    cy.addEmployee("Raju", "G")
+    cy.addemployee("Raju","G")
+    
 
 
   })

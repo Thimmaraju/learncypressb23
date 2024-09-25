@@ -8,13 +8,7 @@ describe('Verify Add Job functionality', () => {
 
   it('Verify add job title with Mandatory details', () => {
    
-    cy.visit("/web/index.php/auth/login")
-    
-    cy.get(`input[name="username"]`).type(Cypress.env("username"))
-
-    cy.get("input[type='password']").type(Cypress.env("password"))
-
-    cy.get("button[type='submit']").click()
+   cy.login(Cypress.env("username"), Cypress.env("password"))
 
     cy.get('a.oxd-main-menu-item.active').should("be.visible")
 

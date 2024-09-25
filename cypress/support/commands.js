@@ -27,3 +27,25 @@
 import 'cypress-file-upload';
 require('cypress-downloadfile/lib/downloadFileCommand')
 require('@4tw/cypress-drag-drop')
+import addemployee from '../pageObjects/PIM/addemployee.po';
+
+Cypress.Commands.add("login", (username, password)=>{
+   
+      cy.visit("/web/index.php/auth/login")
+      cy.get('input[name="username"]').type(username)
+      cy.get('input[type="password"]').type(password)
+      cy.get('button[type="submit"]').click()
+ 
+ })
+
+
+ Cypress.Commands.add("addemployee", (firstname, lastname)=>{
+   
+    cy.get(addemployee.firstnmameInput()).type(firstname)
+  
+    cy.get(addemployee.lastNameInput()).type(lastname)
+
+    cy.get(addemployee.saveBtn()).click()
+
+    cy.contains(addemployee.successMessage()).should("be.visible")
+})

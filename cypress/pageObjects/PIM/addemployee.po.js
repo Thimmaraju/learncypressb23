@@ -35,7 +35,7 @@ class addEmployeePage{
 
      addEmployeeMethod(value1, value2){
 
-        cy.contains(this.addEmployeeSubMenu()).click()
+ //       cy.contains(this.addEmployeeSubMenu()).click()
 
         cy.get(this.firstnmameInput()).type(value1)
   

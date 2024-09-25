@@ -4,7 +4,7 @@ describe('Verify Login functionality', function() {
   beforeEach( ()=>{
 
     cy.log("Test Execution is Started")
-    cy.visit("/web/index.php/auth/login")
+      //cy.visit("/web/index.php/auth/login")
 })
 
 
@@ -30,7 +30,7 @@ afterEach( ()=>{
     menu5 : "Recruitment"
 }
 
-  it.only('Verify login with valid credentials', function() {
+  it('Verify login with valid credentials', function() {
 
 
     switch (Cypress.browser.name) {
@@ -46,13 +46,7 @@ afterEach( ()=>{
         break
 
     }
-    cy.visit("/web/index.php/auth/login")
-
-    cy.xpath(login.usernameInput, { timeout: 40000 }).type(creds.username)
-
-    cy.get(login.passwordInput).type(creds.password)
-
-    cy.get(login.loginBtn()).click()
+    cy.login("Admin", "admin123")
 
     for(let item in menuitems){
 
@@ -66,13 +60,7 @@ afterEach( ()=>{
 
 
   
-    cy.visit("/web/index.php/auth/login")
-
-    cy.get(login.usernameInput).type("Admin")
-
-    cy.get(login.passwordInput).type("ergberhg")
-
-    cy.get(login.loginBtn()).click()
+   cy.login("Admin", "rkfbuherb")
 
     cy.contains(login.loginerrorMessage()).should("be.visible")
 
@@ -81,13 +69,7 @@ afterEach( ()=>{
 
   it('Verify login with invalid username and valid password', () => {
 
-    cy.visit("/web/index.php/auth/login")
-
-    cy.get("input[name='username']").type("kjfjhje")
-
-    cy.get("input[type='password']").type("admin123")
-
-    cy.get("button[type='submit']").click()
+     cy.login("kdsnfvjde", "admin123")
 
     cy.contains('Invalid credentials').should("be.visible")
 
@@ -97,7 +79,7 @@ afterEach( ()=>{
 
   it('Verify login with invalid username and invalid password', () => {
 
-    login.loginwithcreds("ejrwbfew","guyfhew")
+    cy.login("wbehf", "fiehn")
     cy.contains('Invalid credentials').should("be.visible")
 
 
