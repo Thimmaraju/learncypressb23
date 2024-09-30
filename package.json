@@ -17,10 +17,12 @@
   "dependencies": {
     "cypress": "^13.13.0",
     "cypress-real-events": "^1.13.0",
-    "moment": "^2.30.1"
+    "moment": "^2.30.1",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.5",
+    "allure-cypress": "^3.0.2",
     "cypress-downloadfile": "^1.2.4",
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.8.2",

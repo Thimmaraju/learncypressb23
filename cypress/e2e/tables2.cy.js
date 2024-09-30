@@ -7,7 +7,7 @@ describe("suitename", () => {
         cy.visit('https://the-internet.herokuapp.com/tables')
 
 
-        cy.get('#table1 > tbody > tr').should("have.length", 4)
+        cy.get('#table1 > tbody > tr').should("have.length", 6)
 
         cy.get("#table1 > thead>tr>th").should("have.length", 6)
 

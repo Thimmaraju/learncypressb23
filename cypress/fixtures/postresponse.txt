@@ -1,0 +1,82 @@
+{
+  "body": {
+    "data": {
+      "empNumber": 215,
+      "lastName": "Kuamr",
+      "firstName": "Pavan",
+      "middleName": "",
+      "employeeId": "jebgfrh",
+      "terminationId": null
+    },
+    "meta": [],
+    "rels": []
+  },
+  "headers": {
+    "server": "nginx",
+    "date": "Fri, 27 Sep 2024 02:36:40 GMT",
+    "content-type": "application/json",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "cache-control": "no-cache, private",
+    "x-content-type-options": "nosniff",
+    "x-xss-protection": "1; mode=block",
+    "strict-transport-security": "max-age=63072000; includeSubdomains;",
+    "content-security-policy": "default-src blob: 'self' *.projects-abroad.net fonts.googleapis.com www.google.com fonts.gstatic.com code.jquery.com maxcdn.bootstrapcdn.com ajax.googleapis.com cdnjs.cloudflare.com native.testing.equest.com www.youtube.com demo.docusign.net youtu.be player.vimeo.com docs.google.com 'unsafe-inline' 'unsafe-eval' data: font;frame-src 'self' *.amazonaws.com native.testing.equest.com sandbox.e-signlive.com;connect-src 'self' *.orangehrm.com;img-src * 'self' data: blob:",
+    "public-key-pins": "pin-sha256=\"blgmjf3Tb3C0sUqb7jo4axiZAnr327fX0ycrUGqjw2k=\";pin-sha256=\"yQhO6YqQX5Y/NxyHAjXnI3jOtYWUm/TtRr666RunXRg=\"; pin-sha256=\"puCdyuZdXoDc5jSdcGKU6mdjd0VNq16yoaO2BcDF36A=\"; max-age=63072000; includeSubDomains"
+  },
+  "status": 200,
+  "statusText": "OK",
+  "isOkStatusCode": true,
+  "requestHeaders": {
+    "Connection": "keep-alive",
+    "cookie": "orangehrm=e84d1545daf384829c08b58fbe50c011",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate",
+    "content-type": "application/json",
+    "content-length": 97
+  },
+  "requestBody": "{\"firstName\":\"Pavan\",\"middleName\":\"\",\"lastName\":\"Kuamr\",\"empPicture\":null,\"employeeId\":\"jebgfrh\"}",
+  "duration": 355,
+  "allRequestResponses": [
+    {
+      "Request Body": "{\"firstName\":\"Pavan\",\"middleName\":\"\",\"lastName\":\"Kuamr\",\"empPicture\":null,\"employeeId\":\"jebgfrh\"}",
+      "Request Headers": {
+        "Connection": "keep-alive",
+        "cookie": "orangehrm=e84d1545daf384829c08b58fbe50c011",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate",
+        "content-type": "application/json",
+        "content-length": 97
+      },
+      "Request URL": "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees",
+      "Response Body": {
+        "data": {
+          "empNumber": 215,
+          "lastName": "Kuamr",
+          "firstName": "Pavan",
+          "middleName": "",
+          "employeeId": "jebgfrh",
+          "terminationId": null
+        },
+        "meta": [],
+        "rels": []
+      },
+      "Response Headers": {
+        "server": "nginx",
+        "date": "Fri, 27 Sep 2024 02:36:40 GMT",
+        "content-type": "application/json",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "cache-control": "no-cache, private",
+        "x-content-type-options": "nosniff",
+        "x-xss-protection": "1; mode=block",
+        "strict-transport-security": "max-age=63072000; includeSubdomains;",
+        "content-security-policy": "default-src blob: 'self' *.projects-abroad.net fonts.googleapis.com www.google.com fonts.gstatic.com code.jquery.com maxcdn.bootstrapcdn.com ajax.googleapis.com cdnjs.cloudflare.com native.testing.equest.com www.youtube.com demo.docusign.net youtu.be player.vimeo.com docs.google.com 'unsafe-inline' 'unsafe-eval' data: font;frame-src 'self' *.amazonaws.com native.testing.equest.com sandbox.e-signlive.com;connect-src 'self' *.orangehrm.com;img-src * 'self' data: blob:",
+        "public-key-pins": "pin-sha256=\"blgmjf3Tb3C0sUqb7jo4axiZAnr327fX0ycrUGqjw2k=\";pin-sha256=\"yQhO6YqQX5Y/NxyHAjXnI3jOtYWUm/TtRr666RunXRg=\"; pin-sha256=\"puCdyuZdXoDc5jSdcGKU6mdjd0VNq16yoaO2BcDF36A=\"; max-age=63072000; includeSubDomains"
+      },
+      "Response Status": 200
+    }
+  ]
+}

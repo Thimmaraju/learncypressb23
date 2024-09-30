@@ -1,13 +1,14 @@
 const { defineConfig } = require("cypress");
 
 const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+const { allureCypress } = require("allure-cypress/reporter");
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
 
     //specPattern: "cypress/e2e/**/*.dbsqa.{js,jsx,ts,tsx}",
-
+    projectId: "nmuytx",
     "baseUrl":"https://opensource-demo.orangehrmlive.com",
     "watchForFileChanges": false,
    // "defaultCommandTimeout": 20000,
@@ -23,11 +24,14 @@ module.exports = defineConfig({
       "username": "Admin",
       "password":"admin123",
       "version": "",
+      "cookivalue" : "orangehrm=e84d1545daf384829c08b58fbe50c011"
 
     },
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
-      on('task', {downloadFile})
+      on('task', {downloadFile})  
+      allureCypress(on, config);
+      return config;    
     },
   },
 });
