@@ -4,9 +4,9 @@ context("Verify Add employee functionality", () => {
 
   beforeEach( "Login", ()=>{
 
-    // cy.intercept("GET", "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?limit=50&offset=0&model=detailed&includeEmployees=onlyCurrent&sortField=employee.firstName&sortOrder=ASC", {
-    //   forceNetworkError: true,
-    // }).as("getEmployees")
+    cy.intercept("GET", "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?limit=50&offset=0&model=detailed&includeEmployees=onlyCurrent&sortField=employee.firstName&sortOrder=ASC", {
+      forceNetworkError: true,
+    }).as("getEmployees")
 
     cy.intercept("GET", "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/subunits", {
       forceNetworkError: true,

@@ -19,7 +19,6 @@ import './commands'
 import 'cypress-mochawesome-reporter/register';
 require('cypress-xpath');
 import "cypress-real-events";
-import "allure-cypress";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

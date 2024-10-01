@@ -9,14 +9,14 @@ context("Verify Add employee functionality", () => {
             url: "https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/pim/employees?limit=50&offset=0&model=detailed&includeEmployees=onlyCurrent&sortField=employee.firstName&sortOrder=ASC"
         },
         (req) => {
-               req.query.limit=10
+               req.query.limit=5
                req.query.sortOrder='ASC' 
-               req.query.sortField="employee.lastName"
+               req.query.sortField="employee.firstName"
             }
         ).as("getEmployees")
         cy.visit("/web/index.php/auth/login")
 
-        cy.xpath(login.usernameInput).type(Cypress.env("username"), {delay:5000})
+        cy.xpath(login.usernameInput).type(Cypress.env("username"))
 
         cy.get(login.passwordInput).type(Cypress.env("password"))
 

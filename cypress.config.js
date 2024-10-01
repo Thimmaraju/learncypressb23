@@ -1,13 +1,14 @@
 const { defineConfig } = require("cypress");
 
 const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
-const { allureCypress } = require("allure-cypress/reporter");
+
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
 
     //specPattern: "cypress/e2e/**/*.dbsqa.{js,jsx,ts,tsx}",
+    "specPattern": "**/*.feature",
     projectId: "nmuytx",
     "baseUrl":"https://opensource-demo.orangehrmlive.com",
     "watchForFileChanges": false,
@@ -28,10 +29,9 @@ module.exports = defineConfig({
 
     },
     setupNodeEvents(on, config) {
+      return require('./cypress/plugins/index.js')(on, config)
       require('cypress-mochawesome-reporter/plugin')(on);
-      on('task', {downloadFile})  
-      allureCypress(on, config);
-      return config;    
+      on('task', {downloadFile})   
     },
   },
 });
